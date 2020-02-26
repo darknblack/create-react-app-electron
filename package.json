@@ -1,0 +1,75 @@
+{
+  "name": "create-react-app-electron",
+  "version": "0.1.0",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "cross-env": "^7.0.0",
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.4.0"
+  },
+  "scripts": {
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "dev": "yarn electron-dev",
+    "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall1": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder build -w"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "rescripts": [
+    "env"
+  ],
+  "main": "public/electron.js",
+  "homepage": "./",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "author": {
+    "name": "Ian Ishmael Oderon",
+    "email": "ianoderon@gmail.com",
+    "url": "https://github.com/darknblack"
+  },
+  "build": {
+    "appId": "com.github-darknblack.crae",
+    "productName": "crae",
+    "copyright": "Copyright © 2020 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.13",
+    "@rescripts/rescript-env": "^0.0.11",
+    "concurrently": "^5.1.0",
+    "electron": "^8.0.1",
+    "electron-builder": "^22.3.2",
+    "electron-rebuild": "^1.10.0",
+    "typescript": "^3.8.2",
+    "wait-on": "^4.0.0"
+  }
+}
